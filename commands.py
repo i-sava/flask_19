@@ -14,7 +14,7 @@ def create_tables():
 @click.command(name='create_admin')
 @with_appcontext
 def create_admin():
-    #click.echo('Hello! Run command ok')
+	click.echo('Hello! Run command ok before')
     nickname = "superadmin"
     admin = True
     u = User(nickname=nickname, admin=admin)
