@@ -4,6 +4,11 @@ from flask.cli import with_appcontext
 from app import db
 from models import User
 
+@click.group()
+def cli():
+    pass
+
+
 @click.command(name='create_tables')
 @with_appcontext
 def create_tables():
@@ -11,23 +16,24 @@ def create_tables():
     click.echo("tables created!!!")
     #print("create_all was maked")
 
+
 @click.command(name='create_admin')
 @with_appcontext
 def create_admin():
-	click.echo('Hello! Run command ok before')
+    click.echo('Hello! Run command ok before')
     nickname = "superadmin"
     admin = True
     u = User(nickname=nickname, admin=admin)
     #print("superadmin created", u)
-    
     db.session.add(u)
     db.session.commit()
     click.echo("superadmin created!!!")
 
-#Heroku $ flask create_all
+cli.add_command(create_tables)
+cli.add_command(create_admin)
 
 
 if __name__ == '__main__':
-	pass
-	create_tables()
-	create_admin()
+    cli()
+
+#curl $  python create_tables or create_admin

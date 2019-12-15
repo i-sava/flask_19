@@ -1,6 +1,7 @@
 #models.py
 
-from app import db, app
+from app import db
+#from app import app
 
 class User(db.Model):
     __tablename__ = 'users'
