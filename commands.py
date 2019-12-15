@@ -8,7 +8,7 @@ from models import User
 @with_appcontext
 def create_tables():
     db.create_all()
-    print("create_all was maked")
+    #print("create_all was maked")
 
 @click.command(name='create_admin')
 @with_appcontext
