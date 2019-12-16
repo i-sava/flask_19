@@ -13,13 +13,12 @@ def hello():
 @app.route('/add/')
 def webhook():
     nickname = "User_"
-    admin = True
+    admin = False
     u = User(nickname=nickname)
     print("user created", u)
     db.session.add(u)
     db.session.commit()
     return "user created"
-
 
 
 @app.route('/del/')
